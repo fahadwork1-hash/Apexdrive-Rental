@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexDrive UAE — Luxury Fleet Dispatch</title>
+  
+  <!-- FAVICON (Browser Tab Icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='system-ui, -apple-system, sans-serif' font-size='28' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EAD%3C/text%3E%3Ccircle cx='50' cy='20' r='5' fill='%2310b981'/%3E%3C/svg%3E">
+  
+  <!-- Open Graph Meta Tags (WhatsApp & Social Link Preview) -->
+  <meta property="og:title" content="ApexDrive UAE — Luxury Supercar Rental & Fleet Dispatch">
+  <meta property="og:description" content="Direct allocation of 40 verified exotic supercars in Dubai (Porsche, Ferrari, Lamborghini, Rolls-Royce). Official RTA commercial operator #9831.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f172a">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    html[dir="rtl"] body { font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif; }
+    .brand-btn-active { border-color: #0f172a !important; background-color: #0f172a !important; color: #ffffff !important; }
+    .hero-tab-active { background-color: #ffffff !important; color: #0f172a !important; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important; }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased selection:bg-slate-900 selection:text-white relative min-h-screen">
+
+  <!-- TOP BAR -->
+  <div class="bg-white border-b border-slate-200 text-xs text-slate-500 py-2.5 px-6 relative z-40">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-medium text-slate-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span data-i18n="topRta">Dubai RTA Commercial Operator #9831</span>
+        </span>
+        <span class="hidden md:inline text-slate-300">/</span>
+        <span class="hidden md:inline" data-i18n="topVip">Private Aviation & VIP Terminal Handovers</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <!-- Exact 2-Language Toggle: English & العربية -->
+        <div class="inline-flex rounded-full border border-slate-200 bg-slate-100 p-0.5 text-xs font-bold">
+          <button onclick="switchLanguage('en')" id="btnLangEn" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition">
+            English
+          </button>
+          <button onclick="switchLanguage('ar')" id="btnLangAr" class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition">
+            العربية
+          </button>
+        </div>
+
+        <!-- Currency -->
+        <div class="inline-flex rounded-lg border border-slate-200 bg-slate-100 p-0.5 text-[11px] font-bold">
+          <button onclick="setCurrency('AED')" id="bAED" class="px-2.5 py-0.5 rounded-md bg-white text-slate-900 shadow-sm">AED</button>
+          <button onclick="setCurrency('USD')" id="bUSD" class="px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-900">USD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDENTICAL CLEAN NAVBAR -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-lg shadow-sm">AD</div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">ApexDrive</span>
+          <span class="text-[10px] font-bold tracking-widest uppercase text-slate-400" data-i18n="brandSub">UNITED ARAB EMIRATES</span>
+        </div>
+      </a>
+
+      <!-- Center Clean Links -->
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+        <a href="index.html" class="text-slate-950 font-bold" data-i18n="navShowcase">Showcase</a>
+        <a href="fleet.html" class="hover:text-slate-950 transition" data-i18n="navFleet">Full Fleet Catalog</a>
+        <a href="#estimatorSection" class="hover:text-slate-950 transition" data-i18n="navEstimator">Instant Estimator</a>
+        <a href="investor.html" class="hover:text-slate-950 transition" data-i18n="navInvestor">Investor Portal</a>
+        <a href="admin.html" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-xs font-bold text-slate-800 hover:bg-slate-200 transition">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span data-i18n="navDispatcher">Dispatcher Desk</span>
+        </a>
+      </nav>
+
+      <!-- Minimal VIP Direct Call & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+97143928840" class="hidden sm:flex text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>+971 4 392 8840</span>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-3 text-sm font-semibold text-slate-700">
+      <a href="index.html" class="block text-slate-950 font-bold" data-i18n="navShowcase">Showcase</a>
+      <a href="fleet.html" class="block hover:text-slate-950 transition" data-i18n="navFleet">Full Fleet Catalog</a>
+      <a href="#estimatorSection" onclick="toggleMobileMenu()" class="block hover:text-slate-950 transition" data-i18n="navEstimator">Instant Estimator</a>
+      <a href="investor.html" class="block hover:text-slate-950 transition" data-i18n="navInvestor">Investor Portal</a>
+      <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-xs font-bold text-slate-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span data-i18n="navDispatcher">Dispatcher Desk</span>
+      </a>
+      <div class="pt-2 border-t border-slate-100">
+        <a href="tel:+97143928840" class="flex items-center gap-2 text-xs font-bold text-emerald-600">
+          <span>📞 +971 4 392 8840 (Direct VIP Hotline)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto px-6 pt-10 pb-14">
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-8">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1" data-i18n="heroSub">Direct Vehicle Allocation</p>
+        <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight" data-i18n="heroTitle">The 2025 Studio Collection</h1>
+      </div>
+
+      <!-- Hero Tabs with smooth pill highlight toggle -->
+      <div class="flex gap-2 p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs font-bold">
+        <button onclick="switchHeroCar(0, this)" class="hero-tab hero-tab-active px-4 py-2 rounded-lg text-slate-900 transition">Porsche 911</button>
+        <button onclick="switchHeroCar(10, this)" class="hero-tab px-4 py-2 rounded-lg text-slate-500 hover:text-slate-900 transition">Lamborghini</button>
+        <button onclick="switchHeroCar(15, this)" class="hero-tab px-4 py-2 rounded-lg text-slate-500 hover:text-slate-900 transition">Rolls-Royce</button>
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-5 flex flex-col justify-between h-full">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="hStatus">Parked at DXB Terminal 3 Valet</span>
+          </div>
+
+          <h2 id="hName" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Porsche 911 Carrera 4S</h2>
+          <p id="hSpecs" class="text-sm text-slate-500 mb-8">Twin-Turbo Flat-6 • 8-Speed PDK • DXB Handover</p>
+
+          <div class="grid grid-cols-3 gap-4 border-y border-slate-100 py-5 mb-8">
+            <div>
+              <p class="text-xs font-medium text-slate-400 uppercase" data-i18n="statSpeed">0 — 100 km/h</p>
+              <p id="hSpeed" class="text-2xl font-black text-slate-900 mt-1">3.4s</p>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-slate-400 uppercase" data-i18n="statOutput">Output</p>
+              <p id="hPower" class="text-2xl font-black text-slate-900 mt-1">443 HP</p>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-slate-400 uppercase" data-i18n="statTransmission">Transmission</p>
+              <p id="hGear" class="text-base font-bold text-slate-900 mt-1">8-Speed PDK</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2">
+          <div>
+            <p class="text-xs text-slate-400 uppercase font-semibold" data-i18n="dailyRateLabel">Standard Daily Rate</p>
+            <p id="hPrice" class="text-3xl font-black text-slate-900">AED 1,650</p>
+          </div>
+          <button id="hReserveBtn" onclick="openBookingModal(101)" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition shadow-md" data-i18n="btnReserveDubai">
+            Reserve For Dubai &rarr;
+          </button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+          <img id="hImg" src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80" onerror="handleSafeImage(this)" alt="Supercar" class="w-full h-80 sm:h-[420px] object-cover">
+          <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700" data-i18n="actualBadge">
+            Official Studio Shot • Actual Vehicle Delivered
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTORED: INTERACTIVE INSTANT ESTIMATOR SECTION -->
+  <section id="estimatorSection" class="max-w-7xl mx-auto px-6 py-10">
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+      <div class="border-b border-slate-100 pb-5 mb-8">
+        <span class="text-[10px] font-bold tracking-widest uppercase text-slate-400" data-i18n="estSub">REAL-TIME DISPATCH ENGINE</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1" data-i18n="estTitle">Instant Rental Estimator</h2>
+        <p class="text-xs text-slate-500 mt-1" data-i18n="estDesc">Select your required vehicle segment and hire schedule to view accurate net rates.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="estClassLabel">Vehicle Category</label>
+          <select id="estCategory" onchange="runInstantEstimator()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900">
+            <option value="sports">High-Performance Sports (From AED 1,250)</option>
+            <option value="suv">Luxury & Performance SUV (From AED 1,400)</option>
+            <option value="luxury">Presidential & Bespoke Saloon (From AED 1,750)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="labelDuration">Duration</label>
+          <select id="estDuration" onchange="runInstantEstimator()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900">
+            <option value="1">1 Day (Standard Handover)</option>
+            <option value="3">3 Days (Weekend Schedule)</option>
+            <option value="7">7 Days (Weekly Schedule)</option>
+            <option value="14">14 Days (Extended Stay)</option>
+            <option value="30">30 Days (Monthly Contract)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-2" data-i18n="estLocationLabel">Delivery Location</label>
+          <select id="estLocation" onchange="runInstantEstimator()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900">
+            <option value="0">DXB Terminal 3 Valet (Complimentary)</option>
+            <option value="0">Downtown Hotel Suites (Complimentary)</option>
+            <option value="0">Palm Jumeirah Residence (Complimentary)</option>
+            <option value="150">Al Maktoum DWC Jet Center (+AED 150)</option>
+          </select>
+        </div>
+
+        <div class="bg-slate-900 text-white p-4 rounded-2xl flex flex-col justify-between">
+          <p class="text-[10px] text-slate-400 font-bold uppercase" data-i18n="estEstimatedSum">Estimated Net Rental</p>
+          <p id="estDisplayPrice" class="text-2xl font-black tracking-tight text-white mt-1">AED 1,650</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH & MARQUE FILTER SECTION -->
+  <section class="max-w-7xl mx-auto px-6 py-6">
+    <!-- Live Instant Search Bar -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 mb-8 shadow-sm">
+      <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2" data-i18n="searchLabel">
+        Search Fleet By Model Name
+      </label>
+      <div class="relative">
+        <input 
+          type="text" 
+          id="fleetSearchInput" 
+          oninput="handleLiveSearch(this.value)"
+          placeholder="Type to search (e.g. Porsche, G63, Ghost, Tributo, Urus, RS6)..." 
+          class="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-xl px-4 py-3.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-slate-900 transition"
+        >
+        <button onclick="clearSearch()" class="absolute right-3 top-3.5 text-xs text-slate-400 hover:text-slate-700 font-bold px-2 py-1">
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <!-- Direct Clean Brand Filters -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold text-slate-900" data-i18n="filterMarque">Select Manufacturer (5+ Models Each)</h2>
+        <span id="fleetResultCount" class="text-xs font-bold bg-slate-200 px-3 py-1 rounded-full text-slate-700">40 Vehicles</span>
+      </div>
+
+      <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-3">
+        <button onclick="filterMarque('all')" class="brand-filter brand-btn-active bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="all">
+          <span class="text-sm">ALL</span>
+          <span class="text-[10px]" data-i18n="allMarques">Entire Fleet</span>
+        </button>
+        <button onclick="filterMarque('porsche')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="porsche">
+          <span class="text-sm">Porsche</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('ferrari')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="ferrari">
+          <span class="text-sm">Ferrari</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('lamborghini')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="lamborghini">
+          <span class="text-sm">Lamborghini</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('rolls-royce')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="rolls-royce">
+          <span class="text-sm">Rolls-Royce</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('mercedes')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="mercedes">
+          <span class="text-sm">Mercedes</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('land-rover')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="land-rover">
+          <span class="text-sm">Land Rover</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('bmw')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="bmw">
+          <span class="text-sm">BMW</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+        <button onclick="filterMarque('audi')" class="brand-filter bg-white border border-slate-200 py-3 rounded-xl font-bold text-xs hover:border-slate-900 transition flex flex-col items-center justify-center gap-1" data-marque="audi">
+          <span class="text-sm">Audi</span>
+          <span class="text-[10px] text-slate-400">5 Models</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- DYNAMIC CARS GRID -->
+    <div id="fleetContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- DEDICATED CAR DETAIL SHOWROOM MODAL -->
+  <div id="carDetailModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 w-full max-w-2xl max-h-[92vh] overflow-y-auto shadow-2xl relative text-slate-900">
+      
+      <!-- Modal Header with Image & Badges -->
+      <div class="relative bg-slate-900 rounded-t-3xl overflow-hidden">
+        <img id="dtlImage" src="" alt="Car Detail" onerror="handleSafeImage(this)" class="w-full h-64 sm:h-80 object-cover opacity-95">
+        <button onclick="closeCarDetailModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center text-xl font-bold backdrop-blur-md transition z-10">&times;</button>
+        
+        <div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-2">
+          <div class="bg-slate-900/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-white">
+            <span id="dtlBrand" class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-400">PORSCHE</span>
+            <h3 id="dtlName" class="text-xl sm:text-2xl font-black text-white leading-tight">Porsche 911 Carrera 4S</h3>
+          </div>
+          <div class="bg-emerald-500 text-slate-950 text-xs font-black px-3.5 py-1.5 rounded-xl shadow-sm">
+            <span id="dtlPrice">AED 1,650</span> / day
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-6">
+        <!-- Live Status Pill -->
+        <div class="flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-xl w-fit">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="dtlStatus">Parked at DXB Terminal 3 Valet</span>
+        </div>
+
+        <!-- Technical Specifications Grid -->
+        <div>
+          <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3" data-i18n="dtlSpecsHead">Vehicle Performance & Specifications</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlPower">Power Output</span>
+              <span id="dtlPower" class="text-base font-black text-slate-900 mt-0.5 block">443 HP</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlSpeed">0 — 100 km/h</span>
+              <span id="dtlZeroToHundred" class="text-base font-black text-slate-900 mt-0.5 block">3.4s</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlTopSpeed">Top Speed</span>
+              <span id="dtlTopSpeed" class="text-base font-black text-slate-900 mt-0.5 block">315 km/h</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlGear">Transmission</span>
+              <span id="dtlGear" class="text-xs font-black text-slate-900 mt-1 block">8-Speed PDK</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlSeats">Passenger Capacity</span>
+              <span id="dtlSeats" class="text-base font-black text-slate-900 mt-0.5 block">2 Seats</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block" data-i18n="dtlCategory">Segment</span>
+              <span id="dtlCategory" class="text-xs font-black text-slate-900 mt-1 uppercase block">Sports</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dubai VIP Rental Protocol & Inclusions -->
+        <div>
+          <h4 class="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3" data-i18n="dtlProtocolHead">Rental Terms & Inclusions (Dubai Standards)</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <div>
+                <p class="font-bold text-slate-900" data-i18n="dtlInc1Title">250 KM/Day Mileage Included</p>
+                <p class="text-[11px] text-slate-500" data-i18n="dtlInc1Sub">Extra mileage calculated at AED 10/km</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <div>
+                <p class="font-bold text-slate-900" data-i18n="dtlInc2Title">RTA Commercial CDW Insurance</p>
+                <p class="text-[11px] text-slate-500" data-i18n="dtlInc2Sub">Full comprehensive accident coverage</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <div>
+                <p class="font-bold text-slate-900" data-i18n="dtlInc3Title">Complimentary VIP Valet Handover</p>
+                <p class="text-[11px] text-slate-500" data-i18n="dtlInc3Sub">DXB Terminals 1, 2, 3 & Palm Jumeirah</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <div>
+                <p class="font-bold text-slate-900" data-i18n="dtlInc4Title">Refundable Security Deposit</p>
+                <p id="dtlDeposit" class="text-[11px] font-bold text-slate-700">AED 3,000 (Hold on credit card)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action CTAs inside Detail Modal -->
+        <div class="pt-2 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+          <button id="dtlReserveBtn" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-md">
+            <span data-i18n="dtlReserveModalBtn">Reserve This Vehicle &rarr;</span>
+          </button>
+          <button id="dtlWhatsAppBtn" class="bg-[#128C7E] hover:bg-[#075E54] text-white font-bold px-6 py-3.5 rounded-xl transition text-xs shadow-md flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.182 0 5.768-2.587 5.768-5.766.001-3.187-2.575-5.806-5.768-5.806zm7.712 5.766c-.001 4.258-3.468 7.724-7.727 7.724-.954 0-1.896-.207-2.771-.606l-4.529 1.187 1.215-4.417c-.461-.937-.704-1.936-.704-2.888.001-4.258 3.468-7.724 7.728-7.724 4.256 0 7.727 3.466 7.727 7.724z"/></svg>
+            <span data-i18n="btnReserveWhatsApp">Instant WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE BOOKING MODAL (1 TO 30 DAYS + LIVE PRICING) -->
+  <div id="bookingModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 w-full max-w-lg p-6 sm:p-8 shadow-2xl relative text-slate-900 max-h-[95vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase" data-i18n="modalSub">DIRECT DISPATCH</span>
+          <h3 id="modalCarName" class="text-xl font-extrabold text-slate-900">Vehicle Name</h3>
+        </div>
+        <button onclick="closeBookingModal()" class="text-slate-400 hover:text-slate-900 text-2xl font-bold p-1">&times;</button>
+      </div>
+
+      <div class="my-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+        <span class="text-xs text-slate-500 font-semibold" data-i18n="modalDailyRate">Standard Daily Hire Fee:</span>
+        <span id="modalDailyRate" class="text-base font-black text-slate-900">AED 0 / day</span>
+      </div>
+
+      <form onsubmit="handleConfirmBooking(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="labelLegalName">Full Legal Name</label>
+          <input type="text" id="custName" required placeholder="e.g. John Doe / Alexander Wright" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-slate-900">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="labelDate">Pickup Date</label>
+            <input type="date" id="pickupDate" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-slate-900">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="labelDuration">Duration</label>
+            <select id="hireDuration" onchange="calculateModalTotal()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-slate-900">
+              <option value="1">1 Day</option>
+              <option value="2">2 Days</option>
+              <option value="3">3 Days</option>
+              <option value="4">4 Days</option>
+              <option value="5">5 Days</option>
+              <option value="7">7 Days</option>
+              <option value="10">10 Days</option>
+              <option value="14">14 Days</option>
+              <option value="21">21 Days</option>
+              <option value="30">30 Days (Monthly)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="labelHub">Handover Hub</label>
+          <select id="handoverHub" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-slate-900">
+            <option>Dubai Airport Terminal 3 (Emirates VIP Valet)</option>
+            <option>Dubai Airport Terminal 1 (Executive Chauffeur)</option>
+            <option>Al Maktoum Jet Aviation Terminal</option>
+            <option>Downtown Dubai (Address Sky View)</option>
+            <option>Palm Jumeirah (Atlantis The Royal VIP)</option>
+            <option>DIFC Gate Village Concierge</option>
+          </select>
+        </div>
+
+        <!-- TRANSPARENT CALCULATION (NO DISCOUNT BADGES) -->
+        <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-2 text-xs">
+          <div class="flex justify-between text-slate-600">
+            <span data-i18n="calcDurationLabel">Rental Calculation:</span>
+            <span id="calcDurationMath" class="font-bold text-slate-900">AED 0 × 1 Day</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span data-i18n="calcDepositLabel">Refundable Security Deposit:</span>
+            <span id="calcDeposit" class="font-bold text-slate-900">AED 0</span>
+          </div>
+          <div class="border-t border-slate-200 pt-2 flex justify-between font-black text-sm text-slate-900">
+            <span data-i18n="calcTotalLabel">Total Estimated Amount:</span>
+            <span id="calcTotalSum">AED 0</span>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <!-- Official WhatsApp Instant Booking Button -->
+          <button type="button" onclick="handleWhatsAppBooking()" class="w-full bg-[#128C7E] hover:bg-[#075E54] text-white font-bold py-3.5 rounded-xl transition text-xs shadow-md flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.182 0 5.768-2.587 5.768-5.766.001-3.187-2.575-5.806-5.768-5.806zm7.712 5.766c-.001 4.258-3.468 7.724-7.727 7.724-.954 0-1.896-.207-2.771-.606l-4.529 1.187 1.215-4.417c-.461-.937-.704-1.936-.704-2.888.001-4.258 3.468-7.724 7.728-7.724 4.256 0 7.727 3.466 7.727 7.724z"/></svg>
+            <span data-i18n="btnReserveWhatsApp">Instant WhatsApp Reservation &rarr;</span>
+          </button>
+
+          <!-- Operations Desk Dispatch Button -->
+          <button type="submit" id="btnSubmitBooking" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-xs shadow-sm">
+            Confirm Dispatch & Send to Operations &rarr;
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING AI ASSISTANT -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <button onclick="toggleAiDrawer()" id="aiTriggerBtn" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-2.5 font-bold text-xs transition transform hover:scale-105 border border-slate-700">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span data-i18n="aiBtn">Apex AI Concierge</span>
+    </button>
+
+    <div id="aiChatDrawer" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-white border border-slate-200 rounded-3xl shadow-2xl flex-col overflow-hidden">
+      <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center font-bold text-xs text-slate-950">AI</div>
+          <div>
+            <p class="text-xs font-bold leading-none">Apex Concierge Assistant</p>
+            <p class="text-[10px] text-slate-400">Natural Fleet Advisor</p>
+          </div>
+        </div>
+        <button onclick="toggleAiDrawer()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <div id="aiChatMessages" class="p-4 h-64 overflow-y-auto space-y-3 text-xs">
+        <div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-slate-700 max-w-[85%]">
+          Welcome to ApexDrive UAE. Tell me your purpose or target daily budget, and I will recommend the perfect vehicle from our 40-model inventory!
+        </div>
+      </div>
+
+      <form onsubmit="handleAiMessage(event)" class="p-3 border-t border-slate-100 flex gap-2 bg-slate-50">
+        <input type="text" id="aiInputPrompt" placeholder="e.g. Need 5-seater luxury SUV..." class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-slate-900">
+        <button type="submit" class="bg-slate-900 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-slate-800 transition">&rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CLEAN FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-12 text-slate-500 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <p class="text-slate-900 font-extrabold text-base mb-2">ApexDrive UAE</p>
+        <p class="leading-relaxed">Dubai commercial passenger transport operator authorized under RTA. Fleet telemetry and live GPS active on all vehicles.</p>
+      </div>
+      <div>
+        <p class="text-slate-900 font-bold mb-2" data-i18n="footHandovers">VIP Handovers</p>
+        <p>• DXB International VIP Terminals 1, 2, 3</p>
+        <p>• Al Maktoum Executive Flight Base</p>
+        <p>• Palm Jumeirah & Downtown Presidential Suites</p>
+      </div>
+      <div>
+        <p class="text-slate-900 font-bold mb-2" data-i18n="footLinks">Direct Portals</p>
+        <p><a href="fleet.html" class="hover:text-slate-900">Vehicle Inventory</a></p>
+        <p><a href="investor.html" class="hover:text-slate-900">Investor Fleet Portal</a></p>
+        <p><a href="admin.html" class="hover:text-slate-900">Dispatcher Operations</a></p>
+      </div>
+      <div>
+        <p class="text-slate-900 font-bold mb-2" data-i18n="footEngineering">Engineering</p>
+        <p class="text-slate-800 font-semibold">ApexDrive Digital Fleet Systems</p>
+        <p class="mt-1 text-slate-500">Lead Architecture: Fahad Rasheed</p>
+        <p class="mt-1 text-emerald-600 font-semibold">Production Ready Full-Stack Suite</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+      <p>© 2026 ApexDrive Luxury Rental L.L.C. Dubai Commercial Registry. All rights reserved.</p>
+      <p class="text-slate-600">
+        Engineered & Designed by <strong class="text-slate-900 font-bold">Fahad Rasheed</strong> | <strong class="text-slate-900 font-bold">ApexDrive Digital Systems</strong>
+      </p>
+    </div>
+  </footer>
+
+  <!-- CONTROLLERS -->
+  <script src="js/data.js"></script>
+  <script>
+    let activeLang = localStorage.getItem('apex_lang') || 'en';
+    let currentCur = 'AED';
+    let activeMarque = 'all';
+    let currentSearchTerm = '';
+    let selectedCarForBooking = null;
+
+    const translations = {
+      en: {
+        topRta: "Dubai RTA Commercial Operator #9831",
+        topVip: "Private Aviation & VIP Terminal Handovers",
+        brandSub: "UNITED ARAB EMIRATES",
+        navShowcase: "Showcase",
+        navFleet: "Full Fleet Catalog",
+        navEstimator: "Instant Estimator",
+        navInvestor: "Investor Portal",
+        navDispatcher: "Dispatcher Desk",
+        heroSub: "Direct Vehicle Allocation",
+        heroTitle: "The 2025 Studio Collection",
+        statSpeed: "0 — 100 km/h",
+        statOutput: "Output",
+        statTransmission: "Transmission",
+        dailyRateLabel: "Standard Daily Rate",
+        btnReserveDubai: "Reserve For Dubai →",
+        actualBadge: "Official Studio Shot • Actual Vehicle Delivered",
+        estSub: "REAL-TIME DISPATCH ENGINE",
+        estTitle: "Instant Rental Estimator",
+        estDesc: "Select your required vehicle segment and hire schedule to view accurate net rates.",
+        estClassLabel: "Vehicle Category",
+        estLocationLabel: "Delivery Location",
+        estEstimatedSum: "Estimated Net Rental",
+        searchLabel: "Search Fleet By Model Name",
+        filterMarque: "Select Manufacturer (5+ Models Each)",
+        allMarques: "Entire Fleet",
+        modalSub: "DIRECT DISPATCH",
+        modalDailyRate: "Standard Daily Hire Fee:",
+        labelLegalName: "Full Legal Name",
+        labelDate: "Pickup Date",
+        labelDuration: "Duration",
+        labelHub: "Handover Hub",
+        calcDurationLabel: "Rental Calculation:",
+        calcDepositLabel: "Refundable Security Deposit:",
+        calcTotalLabel: "Total Estimated Amount:",
+        btnReserveWhatsApp: "Instant WhatsApp Reservation →",
+        btnViewSpecs: "Specs",
+        dtlSpecsHead: "Vehicle Performance & Specifications",
+        dtlPower: "Power Output",
+        dtlSpeed: "0 — 100 km/h",
+        dtlTopSpeed: "Top Speed",
+        dtlGear: "Transmission",
+        dtlSeats: "Passenger Capacity",
+        dtlCategory: "Segment",
+        dtlProtocolHead: "Rental Terms & Inclusions (Dubai Standards)",
+        dtlInc1Title: "250 KM/Day Mileage Included",
+        dtlInc1Sub: "Extra mileage calculated at AED 10/km",
+        dtlInc2Title: "RTA Commercial CDW Insurance",
+        dtlInc2Sub: "Full comprehensive accident coverage",
+        dtlInc3Title: "Complimentary VIP Valet Handover",
+        dtlInc3Sub: "DXB Terminals 1, 2, 3 & Palm Jumeirah",
+        dtlInc4Title: "Refundable Security Deposit",
+        dtlReserveModalBtn: "Reserve This Vehicle →",
+        aiBtn: "Apex AI Concierge",
+        footHandovers: "VIP Handovers",
+        footLinks: "Direct Portals",
+        footEngineering: "Engineering"
+      },
+      ar: {
+        topRta: "مشغل تجاري مرخص من هيئة الطرق والمواصلات بدبي #9831",
+        topVip: "تسليم صالات كبار الشخصيات والطيران الخاص",
+        brandSub: "الإمارات العربية المتحدة",
+        navShowcase: "الرئيسية",
+        navFleet: "أسطول السيارات بالكامل",
+        navEstimator: "حاسبة الأسعار الفورية",
+        navInvestor: "بوابة المستثمرين",
+        navDispatcher: "مكتب التوزيع المباشر",
+        heroSub: "تخصيص مباشر للسيارات",
+        heroTitle: "مجموعة أستوديو 2025 الفاخرة",
+        statSpeed: "0 — 100 كم/س",
+        statOutput: "القوة الحصانية",
+        statTransmission: "ناقل الحركة",
+        dailyRateLabel: "السعر اليومي القياسي",
+        btnReserveDubai: "احجز الآن في دبي ←",
+        actualBadge: "صورة واقعية • السيارة الفعلية المسلمة للعميل",
+        estSub: "نظام التسعير الفوري المباشر",
+        estTitle: "حاسبة تكلفة الإيجار الفورية",
+        estDesc: "حدد فئة السيارة ومدة الإيجار لمعرفة التكلفة الإجمالية الدقيقة.",
+        estClassLabel: "فئة السيارة",
+        estLocationLabel: "موقع التسليم",
+        estEstimatedSum: "إجمالي الإيجار الصافي المقدر",
+        searchLabel: "ابحث بالاسم عن سيارتك المفضلة",
+        filterMarque: "اختر العلامة التجارية (5 سيارات على الأقل لكل علامة)",
+        allMarques: "كامل الأسطول",
+        modalSub: "طلب حجز مباشر",
+        modalDailyRate: "قيمة الإيجار اليومي:",
+        labelLegalName: "الاسم الكامل الرسمي",
+        labelDate: "تاريخ الاستلام",
+        labelDuration: "مدة الإيجار",
+        labelHub: "موقع التسليم",
+        calcDurationLabel: "حساب تكلفة الإيجار:",
+        calcDepositLabel: "مبلغ التأمين المسترد:",
+        calcTotalLabel: "إجمالي القيمة المقدرة:",
+        btnReserveWhatsApp: "حجز فوري عبر واتساب ←",
+        btnViewSpecs: "التفاصيل",
+        dtlSpecsHead: "الأداء والمواصفات الفنية للسيارة",
+        dtlPower: "القوة الحصانية",
+        dtlSpeed: "0 — 100 كم/س",
+        dtlTopSpeed: "السرعة القصوى",
+        dtlGear: "ناقل الحركة",
+        dtlSeats: "سعة الركاب",
+        dtlCategory: "فئة السيارة",
+        dtlProtocolHead: "شروط الإيجار والضمانات المعتمدة في دبي",
+        dtlInc1Title: "250 كم يومياً مجاناً مشمولة في العقد",
+        dtlInc1Sub: "الكيلومتر الإضافي يحتسب بقيمة 10 دراهم",
+        dtlInc2Title: "تأمين شامل تجاري معتمد من هيئة الطرق",
+        dtlInc2Sub: "تغطية كاملة شاملة للحوادث والأضرار",
+        dtlInc3Title: "تسليم مجاني عبر خدمة صف السيارات VIP",
+        dtlInc3Sub: "مطار دبي مباني 1 و 2 و 3 ونخلة جميرا",
+        dtlInc4Title: "مبلغ التأمين المسترد",
+        dtlReserveModalBtn: "احجز هذه السيارة الآن ←",
+        aiBtn: "المساعد الذكي الفاخر",
+        footHandovers: "مواقع التسليم المعتمدة",
+        footLinks: "روابط سريعة",
+        footEngineering: "التطوير والبرمجة"
+      }
+    };
+
+    function handleSafeImage(img) {
+      img.onerror = null;
+      img.src = "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80";
+    }
+
+    // Language Switcher with Persistence
+    function switchLanguage(lang) {
+      activeLang = lang;
+      localStorage.setItem('apex_lang', lang);
+      const root = document.getElementById('htmlRoot');
+      
+      if (lang === 'ar') {
+        root.setAttribute('dir', 'rtl');
+        root.setAttribute('lang', 'ar');
+        document.getElementById('btnLangAr').className = 'px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition';
+        document.getElementById('btnLangEn').className = 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition';
+      } else {
+        root.setAttribute('dir', 'ltr');
+        root.setAttribute('lang', 'en');
+        document.getElementById('btnLangEn').className = 'px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition';
+        document.getElementById('btnLangAr').className = 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition';
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      renderFleet();
+      runInstantEstimator();
+      if (selectedCarForBooking) calculateModalTotal();
+    }
+
+    function setCurrency(cur) {
+      currentCur = cur;
+      document.getElementById('bAED').className = cur === 'AED' ? 'px-2.5 py-0.5 rounded-md bg-white text-slate-900 shadow-sm' : 'px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-900';
+      document.getElementById('bUSD').className = cur === 'USD' ? 'px-2.5 py-0.5 rounded-md bg-white text-slate-900 shadow-sm' : 'px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-900';
+      renderFleet();
+      runInstantEstimator();
+      if (selectedCarForBooking) calculateModalTotal();
+    }
+
+    // Hero Car Switcher with Dynamic White Pill Tab Highlight
+    function switchHeroCar(index, btnEl) {
+      const car = carsData[index];
+      document.getElementById('hName').innerText = car.name;
+      document.getElementById('hStatus').innerText = activeLang === 'ar' ? car.statusAr : car.status;
+      document.getElementById('hSpeed').innerText = car.zeroToHundred;
+      document.getElementById('hPower').innerText = car.power;
+      document.getElementById('hGear').innerText = car.transmission;
+      document.getElementById('hImg').src = car.image;
+
+      const rate = currentCur === 'AED' ? car.priceAED : car.priceUSD;
+      document.getElementById('hPrice').innerText = `${currentCur} ${rate.toLocaleString()}`;
+      document.getElementById('hReserveBtn').onclick = () => openBookingModal(car.id);
+
+      if (btnEl) {
+        document.querySelectorAll('.hero-tab').forEach(t => {
+          t.classList.remove('hero-tab-active', 'text-slate-900');
+          t.classList.add('text-slate-500');
+        });
+        btnEl.classList.add('hero-tab-active', 'text-slate-900');
+        btnEl.classList.remove('text-slate-500');
+      }
+    }
+
+    // Instant Estimator Engine
+    function runInstantEstimator() {
+      const cat = document.getElementById('estCategory').value;
+      const days = parseInt(document.getElementById('estDuration').value, 10) || 1;
+      const extra = parseInt(document.getElementById('estLocation').value, 10) || 0;
+
+      let baseDaily = 1650;
+      if (cat === 'sports') baseDaily = 1650;
+      if (cat === 'suv') baseDaily = 2100;
+      if (cat === 'luxury') baseDaily = 3800;
+
+      if (currentCur === 'USD') {
+        baseDaily = Math.round(baseDaily / 3.67);
+      }
+
+      const total = (baseDaily * days) + extra;
+      document.getElementById('estDisplayPrice').innerText = `${currentCur} ${total.toLocaleString()}`;
+    }
+
+    function filterMarque(marque) {
+      activeMarque = marque;
+      document.querySelectorAll('.brand-filter').forEach(btn => {
+        if (btn.dataset.marque === marque) {
+          btn.classList.add('brand-btn-active');
+        } else {
+          btn.classList.remove('brand-btn-active');
+        }
+      });
+      renderFleet();
+    }
+
+    function handleLiveSearch(val) {
+      currentSearchTerm = val.trim().toLowerCase();
+      renderFleet();
+    }
+
+    function clearSearch() {
+      document.getElementById('fleetSearchInput').value = '';
+      currentSearchTerm = '';
+      renderFleet();
+    }
+
+    function renderFleet() {
+      const container = document.getElementById('fleetContainer');
+      container.innerHTML = '';
+
+      let filtered = carsData.filter(car => {
+        const matchesMarque = (activeMarque === 'all' || car.brand === activeMarque);
+        const matchesSearch = (!currentSearchTerm || 
+          car.name.toLowerCase().includes(currentSearchTerm) || 
+          car.brand.toLowerCase().includes(currentSearchTerm) || 
+          car.category.toLowerCase().includes(currentSearchTerm));
+        return matchesMarque && matchesSearch;
+      });
+
+      document.getElementById('fleetResultCount').innerText = `${filtered.length} ${activeLang === 'ar' ? 'سيارة متوفرة' : 'Vehicles'}`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center bg-white border border-slate-200 rounded-3xl p-8">
+            <p class="text-base font-bold text-slate-800">${activeLang === 'ar' ? 'لم يتم العثور على سيارات مطابقة' : 'No matching vehicles found'}</p>
+            <p class="text-xs text-slate-500 mt-1">${activeLang === 'ar' ? 'يرجى تجربة اسم طراز آخر أو مسح البحث' : 'Try searching another model or clear the search query'}</p>
+            <button onclick="clearSearch()" class="mt-4 bg-slate-900 text-white text-xs font-bold px-4 py-2 rounded-xl">Clear Search</button>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(car => {
+        const rate = currentCur === 'AED' ? car.priceAED : car.priceUSD;
+        const statusText = activeLang === 'ar' ? car.statusAr : car.status;
+
+        const specsLabel = (translations[activeLang] && translations[activeLang].btnViewSpecs) || 'Specs';
+        const reserveLabel = activeLang === 'ar' ? 'احجز' : 'Reserve';
+
+        container.innerHTML += `
+          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-slate-300 hover:shadow-md transition flex flex-col justify-between group">
+            <div>
+              <div onclick="openCarDetailModal(${car.id})" class="relative bg-slate-100 cursor-pointer overflow-hidden">
+                <img src="${car.image}" alt="${car.name}" onerror="handleSafeImage(this)" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute top-3 left-3 bg-white/95 text-slate-900 text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm uppercase">${car.category}</span>
+                <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-semibold px-2 py-0.5 rounded">${car.brand.toUpperCase()}</span>
+                <span class="absolute bottom-2.5 right-2.5 bg-slate-900/75 hover:bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur-md transition opacity-0 group-hover:opacity-100 flex items-center gap-1">
+                  <span>🔍 ${specsLabel}</span>
+                </span>
+              </div>
+              <div class="p-5">
+                <p class="text-[11px] font-semibold text-emerald-600 mb-1 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  ${statusText}
+                </p>
+                <h3 onclick="openCarDetailModal(${car.id})" class="text-base font-bold text-slate-900 mb-1 cursor-pointer hover:text-emerald-700 transition">${car.name}</h3>
+                <div class="grid grid-cols-3 gap-2 border-y border-slate-100 py-3 text-[11px] text-slate-600 mt-4 text-center">
+                  <div><span class="block font-bold text-slate-900">${car.power}</span>Output</div>
+                  <div><span class="block font-bold text-slate-900">${car.zeroToHundred}</span>0-100</div>
+                  <div><span class="block font-bold text-slate-900">${car.seats} Seats</span>Capacity</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-5 pt-0 flex items-center justify-between gap-2">
+              <div>
+                <span class="text-xl font-black text-slate-900">${currentCur} ${rate.toLocaleString()}</span>
+                <span class="text-[11px] text-slate-400">/day</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openCarDetailModal(${car.id})" class="border border-slate-200 hover:border-slate-900 text-slate-800 text-xs font-bold px-3 py-2 rounded-xl transition shadow-sm">
+                  ${specsLabel}
+                </button>
+                <button onclick="openBookingModal(${car.id})" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm">
+                  ${reserveLabel} &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    let selectedCarForDetail = null;
+
+    function openCarDetailModal(carId) {
+      const car = carsData.find(c => c.id === carId);
+      if (!car) return;
+      selectedCarForDetail = car;
+
+      document.getElementById('dtlImage').src = car.image;
+      document.getElementById('dtlBrand').innerText = car.brand.toUpperCase();
+      document.getElementById('dtlName').innerText = car.name;
+      
+      const rate = currentCur === 'AED' ? car.priceAED : car.priceUSD;
+      document.getElementById('dtlPrice').innerText = `${currentCur} ${rate.toLocaleString()}`;
+      document.getElementById('dtlStatus').innerText = activeLang === 'ar' ? car.statusAr : car.status;
+      
+      document.getElementById('dtlPower').innerText = car.power;
+      document.getElementById('dtlZeroToHundred').innerText = car.zeroToHundred;
+      document.getElementById('dtlGear').innerText = car.transmission;
+      document.getElementById('dtlSeats').innerText = `${car.seats} ${activeLang === 'ar' ? 'مقاعد' : 'Seats'}`;
+      document.getElementById('dtlCategory').innerText = car.category.toUpperCase();
+      
+      let topSpd = "315 km/h";
+      if (car.category === 'sports') topSpd = parseFloat(car.zeroToHundred) < 3.0 ? "340 km/h" : "320 km/h";
+      if (car.category === 'suv') topSpd = "285 km/h";
+      if (car.category === 'luxury') topSpd = "250 km/h";
+      document.getElementById('dtlTopSpeed').innerText = topSpd;
+
+      const deposit = currentCur === 'AED' ? car.depositAED : Math.round(car.depositAED / 3.67);
+      document.getElementById('dtlDeposit').innerText = `${currentCur} ${deposit.toLocaleString()} ${activeLang === 'ar' ? '(تأمين مسترد على البطاقة)' : '(Hold on Card)'}`;
+
+      document.getElementById('dtlReserveBtn').onclick = () => {
+        closeCarDetailModal();
+        openBookingModal(car.id);
+      };
+
+      document.getElementById('dtlWhatsAppBtn').onclick = () => {
+        closeCarDetailModal();
+        openBookingModal(car.id);
+      };
+
+      const m = document.getElementById('carDetailModal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeCarDetailModal() {
+      const m = document.getElementById('carDetailModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function openBookingModal(carId) {
+      selectedCarForBooking = carsData.find(c => c.id === carId);
+      if (!selectedCarForBooking) return;
+
+      document.getElementById('modalCarName').innerText = selectedCarForBooking.name;
+      const rate = currentCur === 'AED' ? selectedCarForBooking.priceAED : selectedCarForBooking.priceUSD;
+      document.getElementById('modalDailyRate').innerText = `${currentCur} ${rate.toLocaleString()} / day`;
+      
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('pickupDate').value = today;
+
+      calculateModalTotal();
+
+      const modal = document.getElementById('bookingModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function calculateModalTotal() {
+      if (!selectedCarForBooking) return;
+
+      const duration = parseInt(document.getElementById('hireDuration').value, 10) || 1;
+      const rate = currentCur === 'AED' ? selectedCarForBooking.priceAED : selectedCarForBooking.priceUSD;
+      const deposit = currentCur === 'AED' ? selectedCarForBooking.depositAED : Math.round(selectedCarForBooking.depositAED / 3.67);
+
+      const rentalFee = rate * duration;
+
+      document.getElementById('calcDurationMath').innerText = `${currentCur} ${rate.toLocaleString()} × ${duration} ${duration > 1 ? 'Days' : 'Day'} = ${currentCur} ${rentalFee.toLocaleString()}`;
+      document.getElementById('calcDeposit').innerText = `${currentCur} ${deposit.toLocaleString()} (Refundable)`;
+      document.getElementById('calcTotalSum').innerText = `${currentCur} ${rentalFee.toLocaleString()}`;
+      
+      document.getElementById('btnSubmitBooking').innerText = activeLang === 'ar' 
+        ? `تأكيد طلب التوزيع (${currentCur} ${rentalFee.toLocaleString()}) ←` 
+        : `Confirm Dispatch (${currentCur} ${rentalFee.toLocaleString()}) →`;
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+
+    function saveBookingToStorage(statusType = 'Pending') {
+      if (!selectedCarForBooking) return null;
+      const name = document.getElementById('custName').value.trim() || 'Valued Client';
+      const pickupDate = document.getElementById('pickupDate').value;
+      const duration = parseInt(document.getElementById('hireDuration').value, 10) || 1;
+      const hub = document.getElementById('handoverHub').value;
+      const rate = currentCur === 'AED' ? selectedCarForBooking.priceAED : selectedCarForBooking.priceUSD;
+      const totalAmount = `${currentCur} ${(rate * duration).toLocaleString()}`;
+      const newId = "APX-" + Math.floor(1000 + Math.random() * 9000);
+
+      const bookingObj = {
+        id: newId,
+        customer: name,
+        car: selectedCarForBooking.name,
+        location: hub,
+        amount: totalAmount,
+        status: statusType,
+        date: pickupDate,
+        duration: `${duration} ${duration > 1 ? 'Days' : 'Day'}`
+      };
+
+      try {
+        let existing = JSON.parse(localStorage.getItem('apex_bookings') || '[]');
+        existing.unshift(bookingObj);
+        localStorage.setItem('apex_bookings', JSON.stringify(existing));
+      } catch (err) {
+        console.error("Storage error:", err);
+      }
+      return bookingObj;
+    }
+
+    function handleConfirmBooking(e) {
+      e.preventDefault();
+      const b = saveBookingToStorage('Pending');
+      if (!b) return;
+
+      alert(activeLang === 'ar' 
+        ? `تم إرسال طلب الحجز إلى مكتب العمليات بنجاح!\nرقم الحجز: ${b.id}\nالسيارة: ${b.car}\nالمستأجر: ${b.customer}\nالقيمة: ${b.amount}\n\nتمت المزامنة المباشرة مع مكتب التوزيع.` 
+        : `Dispatch Request Created Successfully!\nBooking ID: ${b.id}\nVehicle: ${b.car}\nClient: ${b.customer}\nTotal: ${b.amount}\n\nSynced live with Dispatcher Desk.`);
+      closeBookingModal();
+    }
+
+    function handleWhatsAppBooking() {
+      const nameInput = document.getElementById('custName');
+      if (!nameInput.value.trim()) {
+        nameInput.focus();
+        alert(activeLang === 'ar' ? 'يرجى إدخال الاسم الكامل أولاً' : 'Please enter your legal name first');
+        return;
+      }
+
+      const b = saveBookingToStorage('Pending');
+      const name = nameInput.value.trim();
+      const pickupDate = document.getElementById('pickupDate').value;
+      const duration = document.getElementById('hireDuration').value;
+      const hub = document.getElementById('handoverHub').value;
+      const rate = currentCur === 'AED' ? selectedCarForBooking.priceAED : selectedCarForBooking.priceUSD;
+      const totalAmount = `${currentCur} ${(rate * parseInt(duration, 10)).toLocaleString()}`;
+      const isAr = (activeLang === 'ar');
+      const msg = encodeURIComponent(
+        isAr 
+          ? `مرحباً أيبكس درايف، أود حجز سيارة من أسطول دبي:\n\n` +
+            `• رقم الحجز: ${b ? b.id : 'مباشر'}\n` +
+            `• السيارة: ${selectedCarForBooking.name}\n` +
+            `• اسم العميل: ${name}\n` +
+            `• تاريخ الاستلام: ${pickupDate}\n` +
+            `• مدة الإيجار: ${duration} يوم\n` +
+            `• موقع التسليم: ${hub}\n` +
+            `• القيمة المقدرة: ${totalAmount}\n\n` +
+            `يرجى تأكيد التوفر والتسليم.`
+          : `Hi ApexDrive UAE, I would like to reserve a vehicle from your fleet:\n\n` +
+            `• Booking Ref: ${b ? b.id : 'Direct'}\n` +
+            `• Vehicle: ${selectedCarForBooking.name}\n` +
+            `• Client Name: ${name}\n` +
+            `• Pickup Date: ${pickupDate}\n` +
+            `• Duration: ${duration} Day(s)\n` +
+            `• Handover Hub: ${hub}\n` +
+            `• Estimated Total: ${totalAmount}\n\n` +
+            `Please confirm availability and dispatch terms.`
+      );
+
+      const targetPhone = "923150845311"; 
+      const waUrl = `https://wa.me/${targetPhone}?text=${msg}`;
+
+      window.open(waUrl, '_blank');
+      closeBookingModal();
+    }
+
+    function toggleAiDrawer() {
+      const drawer = document.getElementById('aiChatDrawer');
+      drawer.classList.toggle('hidden');
+      drawer.classList.toggle('flex');
+    }
+
+    function handleAiMessage(e) {
+      e.preventDefault();
+      const input = document.getElementById('aiInputPrompt');
+      const text = input.value.trim().toLowerCase();
+      if (!text) return;
+
+      const msgBox = document.getElementById('aiChatMessages');
+      msgBox.innerHTML += `<div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] ml-auto text-right">${input.value}</div>`;
+      input.value = '';
+
+      setTimeout(() => {
+        let reply = "I recommend our **Porsche 911 Carrera 4S** or **BMW M4 Competition** for direct, high-performance Dubai driving.";
+        if (text.includes('suv') || text.includes('desert') || text.includes('space')) {
+          reply = "For ultimate road presence, the **Mercedes-AMG G63 BiTurbo** (AED 2,200/day) or **Range Rover Autobiography** are parked and ready at Terminal 3.";
+        } else if (text.includes('rolls') || text.includes('vip') || text.includes('luxury') || text.includes('wedding')) {
+          reply = "For presidential comfort, nothing matches the **Rolls-Royce Ghost Series II** or **Rolls-Royce Cullinan Black Badge** with complimentary VIP valet.";
+        }
+        msgBox.innerHTML += `<div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-slate-700 max-w-[85%]">${reply}</div>`;
+        msgBox.scrollTop = msgBox.scrollHeight;
+      }, 450);
+    }
+
+    // Initialize with Persisted Language
+    switchLanguage(activeLang);
+    switchHeroCar(0, document.querySelectorAll('.hero-tab')[0]);
+    runInstantEstimator();
+  </script>
+</body>
+</html>

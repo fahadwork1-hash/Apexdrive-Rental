@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet Investment & Asset Management | ApexDrive UAE</title>
+  
+  <!-- FAVICON (Browser Tab Icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='system-ui, -apple-system, sans-serif' font-size='28' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EAD%3C/text%3E%3Ccircle cx='50' cy='20' r='5' fill='%2310b981'/%3E%3C/svg%3E">
+  
+  <!-- Open Graph Meta Tags (WhatsApp & Social Link Preview) -->
+  <meta property="og:title" content="ApexDrive UAE — Supercar Asset Management & Yield Portal">
+  <meta property="og:description" content="Monetize your supercar in Dubai with up to 20.1% net annual returns. DIFC registered framework.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f172a">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    html[dir="rtl"] body { font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
+
+  <!-- TOP BAR (WITH 2-LANGUAGE PERSISTENT SWITCHER) -->
+  <div class="bg-white border-b border-slate-200 text-xs text-slate-500 py-2.5 px-6 relative z-40">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span class="inline-flex items-center gap-2 font-medium text-slate-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span data-i18n="topTag">ApexDrive Asset Management Division • DIFC Registered Framework</span>
+      </span>
+
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline text-slate-600">
+          <span data-i18n="deskLabel">Direct Partner Desk:</span> <strong>+971 4 392 8849</strong>
+        </span>
+
+        <!-- Language Switcher -->
+        <div class="inline-flex rounded-full border border-slate-200 bg-slate-100 p-0.5 text-xs font-bold">
+          <button onclick="switchInvestorLang('en')" id="btnLangEn" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition">
+            English
+          </button>
+          <button onclick="switchInvestorLang('ar')" id="btnLangAr" class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition">
+            العربية
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDENTICAL CLEAN NAVBAR (MATCHING ALL PAGES) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-lg shadow-sm">AD</div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">ApexDrive</span>
+          <span class="text-[10px] font-bold tracking-widest uppercase text-slate-400" data-i18n="brandSub">Capital & Fleet Partner</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+        <a href="index.html" class="hover:text-slate-950 transition" data-i18n="navShowcase">Showcase</a>
+        <a href="fleet.html" class="hover:text-slate-950 transition" data-i18n="navFleet">Full Fleet Catalog</a>
+        <a href="index.html#estimatorSection" class="hover:text-slate-950 transition" data-i18n="navEstimator">Instant Estimator</a>
+        <a href="investor.html" class="text-slate-950 font-bold" data-i18n="navInvestor">Investor Portal</a>
+        <a href="admin.html" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-xs font-bold text-slate-800 hover:bg-slate-200 transition">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span data-i18n="navDispatcher">Dispatcher Desk</span>
+        </a>
+      </nav>
+
+      <!-- Minimal VIP Direct Call & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+97143928840" class="hidden sm:flex text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>+971 4 392 8840</span>
+        </a>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-3 text-sm font-semibold text-slate-700">
+      <a href="index.html" class="block hover:text-slate-950 transition" data-i18n="navShowcase">Showcase</a>
+      <a href="fleet.html" class="block hover:text-slate-950 transition" data-i18n="navFleet">Full Fleet Catalog</a>
+      <a href="index.html#estimatorSection" class="block hover:text-slate-950 transition" data-i18n="navEstimator">Instant Estimator</a>
+      <a href="investor.html" class="block text-slate-950 font-bold" data-i18n="navInvestor">Investor Portal</a>
+      <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-xs font-bold text-slate-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span data-i18n="navDispatcher">Dispatcher Desk</span>
+      </a>
+      <div class="pt-2 border-t border-slate-100">
+        <a href="tel:+97143928840" class="flex items-center gap-2 text-xs font-bold text-emerald-600">
+          <span>📞 +971 4 392 8840 (Direct VIP Hotline)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN INVESTOR SECTION -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 pb-16">
+    <div class="max-w-3xl mb-12">
+      <span class="inline-block py-1 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider mb-4" data-i18n="badgeProgram">
+        Passive Income Asset Program
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4">
+        <span data-i18n="heroTitlePart1">Monetize Your Supercar in Dubai.</span> <br>
+        <span class="text-slate-900 font-bold">
+          <span data-i18n="heroTitlePart2">Earn up to</span> 
+          <span class="underline decoration-emerald-500 underline-offset-4" data-i18n="heroTitleHighlight">20.1% Net Annual Returns</span>.
+        </span>
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg leading-relaxed" data-i18n="heroDesc">
+        Place your vehicle into ApexDrive's certified commercial fleet. We handle RTA commercial registration, client vetting, full comprehensive insurance, 24/7 telematics tracking, and monthly payout disbursements directly to your account.
+      </p>
+    </div>
+
+    <!-- 4 METRICS CARDS -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1" data-i18n="metricRoiLabel">Average Fleet ROI</p>
+        <p class="text-3xl font-black text-slate-900">17.8%</p>
+        <p class="text-[11px] text-emerald-600 font-semibold mt-1" data-i18n="metricRoiSub">Net after management</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1" data-i18n="metricOccLabel">Fleet Occupancy</p>
+        <p class="text-3xl font-black text-slate-900">84.2%</p>
+        <p class="text-[11px] text-slate-500 font-medium mt-1" data-i18n="metricOccSub">Dubai peak & winter season</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1" data-i18n="metricRevLabel">Revenue Share Model</p>
+        <p class="text-3xl font-black text-slate-900">70 / 30</p>
+        <p class="text-[11px] text-slate-500 font-medium mt-1" data-i18n="metricRevSub">70% to Owner / 30% to Apex</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1" data-i18n="metricProtLabel">Asset Protection</p>
+        <p class="text-3xl font-black text-slate-900">100%</p>
+        <p class="text-[11px] text-slate-500 font-medium mt-1" data-i18n="metricProtSub">RTA commercial CDW bond</p>
+      </div>
+    </div>
+
+    <!-- YIELD SIMULATION CALCULATOR -->
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm mb-16">
+      <div class="max-w-2xl mb-8">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-slate-400 block mb-1" data-i18n="calcBadge">Yield Simulation</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="calcTitle">Calculate Projected Annual Payout</h2>
+        <p class="text-slate-500 text-sm mt-1" data-i18n="calcDesc">Select an existing asset profile or calculate based on market valuation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2" data-i18n="labelCarSelect">Target Vehicle Category</label>
+            <select id="invCarSelect" onchange="runInvestorCalc()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+            </select>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="labelDaysSlider">Expected Days Rented / Month</label>
+              <span id="occupancyDaysLabel" class="text-sm font-extrabold text-slate-900 bg-slate-100 px-3 py-1 rounded-md">22 Days (Standard)</span>
+            </div>
+            <input type="range" id="invDays" min="12" max="28" value="22" oninput="runInvestorCalc()" class="w-full accent-slate-900 cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+              <span data-i18n="sliderMin">12 Days (Conservative)</span>
+              <span data-i18n="sliderMid">22 Days (Normal Dubai Avg)</span>
+              <span data-i18n="sliderMax">28 Days (Peak Season)</span>
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-600">
+            <p class="font-bold text-slate-900" data-i18n="coverTitle">What ApexDrive Covers Under Management (30% Fee):</p>
+            <p data-i18n="cover1">✓ Complete RTA Commercial Permit Licensing</p>
+            <p data-i18n="cover2">✓ Driver Vetting & Criminal Record Check</p>
+            <p data-i18n="cover3">✓ Bi-weekly Professional Detailing & Valet Storage</p>
+            <p data-i18n="cover4">✓ 24/7 Telematics & Engine Limiter Geo-fencing</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 sm:p-8">
+          <div class="border-b border-slate-800 pb-4 mb-4 flex justify-between items-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400" data-i18n="payoutTitle">Net Owner Disbursal</span>
+            <span class="text-[11px] text-emerald-400 font-bold" data-i18n="payoutSub">Monthly Direct Wire</span>
+          </div>
+
+          <div class="space-y-3 text-xs text-slate-300 border-b border-slate-800 pb-4 mb-4">
+            <div class="flex justify-between">
+              <span data-i18n="lblGross">Gross Rental Turnover:</span>
+              <span id="projGross" class="font-bold text-white">AED 48,400</span>
+            </div>
+            <div class="flex justify-between">
+              <span data-i18n="lblFee">Platform Operations (30%):</span>
+              <span id="projFee" class="text-slate-400">- AED 14,520</span>
+            </div>
+            <div class="flex justify-between">
+              <span data-i18n="lblMaint">Maintenance Provision (5%):</span>
+              <span id="projMaint" class="text-slate-400">- AED 2,420</span>
+            </div>
+            <div class="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <span class="text-emerald-400" data-i18n="lblNetMonthly">Net Monthly Payout to You:</span>
+              <span id="projNetMonthly" class="text-emerald-400 text-sm">AED 31,460</span>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <p class="text-xs text-slate-400 uppercase font-semibold" data-i18n="lblNetAnnual">Projected Net Annual Return</p>
+            <p id="projNetAnnual" class="text-3xl font-black text-white mt-1">AED 377,520</p>
+            <p id="projRoiLabel" class="text-[11px] text-emerald-400 font-semibold mt-1">Estimated ~17.4% Cap Rate</p>
+          </div>
+
+          <a href="#partner-form" class="w-full block text-center bg-white hover:bg-slate-100 text-slate-950 font-black py-3.5 rounded-xl transition text-xs uppercase tracking-wider" data-i18n="btnApply">
+            Apply For Vehicle Placement &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTNER SUBMISSION FORM -->
+    <div id="partner-form" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm max-w-2xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-extrabold text-slate-900" data-i18n="formTitle">List Your Vehicle With ApexDrive</h2>
+        <p class="text-xs text-slate-500 mt-1" data-i18n="formSub">Our asset acquisition team reviews vehicle telemetry and responds within 24 hours.</p>
+      </div>
+
+      <form onsubmit="handlePartnerSubmit(event)" class="space-y-4 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formName">Owner Legal Name</label>
+            <input type="text" id="ownerName" required placeholder="e.g. Khalid Al-Mansoori" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formPhone">Contact Phone / WhatsApp</label>
+            <input type="tel" id="ownerPhone" required placeholder="+971 50 000 0000" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formModel">Vehicle Make & Model</label>
+            <input type="text" id="carModel" required placeholder="e.g. 2024 Ferrari F8 or G63" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1" data-i18n="formMileage">Current Mileage (KM)</label>
+            <input type="number" id="carMileage" required placeholder="e.g. 12000" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1" data-i18n="formPlateStatus">Vehicle Registration Status</label>
+          <select id="carPlate" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900">
+            <option>Dubai Private Plates (Conversion to Commercial Assisted)</option>
+            <option>Abu Dhabi / GCC Plates</option>
+            <option>Unregistered / New Import</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition text-xs mt-2 shadow-sm" data-i18n="formBtnSubmit">
+          Submit Asset For Evaluation & Callback &rarr;
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- IDENTICAL FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-10 text-slate-500 text-xs text-center">
+    <p>© 2026 ApexDrive Asset Capital Division. Registered with Dubai Department of Economy & Tourism.</p>
+    <p class="mt-2 text-slate-600">
+      Engineered & Designed by <strong class="text-slate-900 font-bold">Fahad Rasheed</strong> | <strong class="text-slate-900 font-bold">ApexDrive Digital Systems</strong>
+    </p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    let activeLang = localStorage.getItem('apex_lang') || 'en';
+
+    const invTrans = {
+      en: {
+        topTag: "ApexDrive Asset Management Division • DIFC Registered Framework",
+        deskLabel: "Direct Partner Desk:",
+        brandSub: "Capital & Fleet Partner",
+        navShowcase: "Showcase",
+        navFleet: "Full Fleet Catalog",
+        navEstimator: "Instant Estimator",
+        navInvestor: "Investor Portal",
+        navDispatcher: "Dispatcher Desk",
+        badgeProgram: "Passive Income Asset Program",
+        heroTitlePart1: "Monetize Your Supercar in Dubai.",
+        heroTitlePart2: "Earn up to",
+        heroTitleHighlight: "20.1% Net Annual Returns",
+        heroDesc: "Place your vehicle into ApexDrive's certified commercial fleet. We handle RTA commercial registration, client vetting, full comprehensive insurance, 24/7 telematics tracking, and monthly payout disbursements directly to your account.",
+        metricRoiLabel: "Average Fleet ROI",
+        metricRoiSub: "Net after management",
+        metricOccLabel: "Fleet Occupancy",
+        metricOccSub: "Dubai peak & winter season",
+        metricRevLabel: "Revenue Share Model",
+        metricRevSub: "70% to Owner / 30% to Apex",
+        metricProtLabel: "Asset Protection",
+        metricProtSub: "RTA commercial CDW bond",
+        calcBadge: "Yield Simulation",
+        calcTitle: "Calculate Projected Annual Payout",
+        calcDesc: "Select an existing asset profile or calculate based on market valuation.",
+        labelCarSelect: "Target Vehicle Category",
+        labelDaysSlider: "Expected Days Rented / Month",
+        sliderMin: "12 Days (Conservative)",
+        sliderMid: "22 Days (Normal Dubai Avg)",
+        sliderMax: "28 Days (Peak Season)",
+        coverTitle: "What ApexDrive Covers Under Management (30% Fee):",
+        cover1: "✓ Complete RTA Commercial Permit Licensing",
+        cover2: "✓ Driver Vetting & Criminal Record Check",
+        cover3: "✓ Bi-weekly Professional Detailing & Valet Storage",
+        cover4: "✓ 24/7 Telematics & Engine Limiter Geo-fencing",
+        payoutTitle: "Net Owner Disbursal",
+        payoutSub: "Monthly Direct Wire",
+        lblGross: "Gross Rental Turnover:",
+        lblFee: "Platform Operations (30%):",
+        lblMaint: "Maintenance Provision (5%):",
+        lblNetMonthly: "Net Monthly Payout to You:",
+        lblNetAnnual: "Projected Net Annual Return",
+        btnApply: "Apply For Vehicle Placement →",
+        formTitle: "List Your Vehicle With ApexDrive",
+        formSub: "Our asset acquisition team reviews vehicle telemetry and responds within 24 hours.",
+        formName: "Owner Legal Name",
+        formPhone: "Contact Phone / WhatsApp",
+        formModel: "Vehicle Make & Model",
+        formMileage: "Current Mileage (KM)",
+        formPlateStatus: "Vehicle Registration Status",
+        formBtnSubmit: "Submit Asset For Evaluation & Callback →"
+      },
+      ar: {
+        topTag: "قسم إدارة أصول أيبكس درايف • إطار عمل مرخص من مركز دبي المالي العالمي",
+        deskLabel: "مكتب الشركاء المباشر:",
+        brandSub: "الشريك المالي للأسطول",
+        navShowcase: "الرئيسية",
+        navFleet: "كامل الأسطول",
+        navEstimator: "حاسبة الأسعار الفورية",
+        navInvestor: "بوابة المستثمرين",
+        navDispatcher: "مكتب التوزيع",
+        badgeProgram: "برنامج العوائد الاستثمارية السلبية",
+        heroTitlePart1: "استثمر سيارتك الفاخرة في دبي.",
+        heroTitlePart2: "احصل على ما يصل إلى",
+        heroTitleHighlight: "عائد سنوي صافي 20.1%",
+        heroDesc: "ضم سيارتك الفاخرة إلى أسطول أيبكس درايف التجاري المعتمد. نتولى بالكامل التراخيص التجارية من هيئة الطرق والمواصلات، وتدقيق المستأجرين، والتأمين الشامل، والتتبع عن بُعد 24/7، مع تحويل الأرباح شهرياً لحسابك مباشرة.",
+        metricRoiLabel: "متوسط العائد السنوي",
+        metricRoiSub: "صافي بعد مصاريف الإدارة",
+        metricOccLabel: "نسبة إشغال الأسطول",
+        metricOccSub: "موسم الذروة والشتاء في دبي",
+        metricRevLabel: "نموذج مشاركة الأرباح",
+        metricRevSub: "70% للمالك / 30% للمنصة",
+        metricProtLabel: "حماية الأصل الاستثماري",
+        metricProtSub: "تأمين تجاري شامل معتمد من هيئة الطرق",
+        calcBadge: "محاكاة العوائد المالية",
+        calcTitle: "احسب العائد السنوي المتوقع لسيارتك",
+        calcDesc: "اختر فئة السيارة لمعرفة تقدير العائد بناءً على القيمة السوقية ومعدل الإشغال.",
+        labelCarSelect: "فئة السيارة المستهدفة",
+        labelDaysSlider: "عدد أيام الإيجار المتوقعة شهرياً",
+        sliderMin: "12 يوم (تقدير متحفظ)",
+        sliderMid: "22 يوم (المعدل الطبيعي في دبي)",
+        sliderMax: "28 يوم (موسم الذروة)",
+        coverTitle: "ما تقدمه أيبكس درايف تحت رسوم الإدارة (30%):",
+        cover1: "✓ إصدار التصاريح التجارية من هيئة الطرق والمواصلات بالكامل",
+        cover2: "✓ فحص السجل الأمني والجنائي للعملاء المستأجرين",
+        cover3: "✓ صيانة دورية، عناية احترافية وتنظيف شامل كل أسبوعين",
+        cover4: "✓ تتبع فوري عبر الأقمار الصناعية 24/7 مع نظام التحكم في السرعة",
+        payoutTitle: "صافي أرباح المالك",
+        payoutSub: "تحويل بنكي شهري مباشر",
+        lblGross: "إجمالي إيراد الإيجار:",
+        lblFee: "رسوم تشغيل المنصة (30%):",
+        lblMaint: "احتياطي الصيانة (5%):",
+        lblNetMonthly: "صافي التحويل الشهري لك:",
+        lblNetAnnual: "العائد الصافي السنوي المتوقع",
+        btnApply: "قدم طلب تسجيل سيارتك الآن ←",
+        formTitle: "سجل سيارتك الآن مع أيبكس درايف",
+        formSub: "يقوم فريق فحص الأصول بمراجعة بيانات السيارة والتواصل معك خلال 24 ساعة.",
+        formName: "الاسم الرسمي للمالك",
+        formPhone: "رقم الهاتف / واتساب",
+        formModel: "نوع وطراز وسنة الصنع",
+        formMileage: "المسافة المقطوعة الحالية (كم)",
+        formPlateStatus: "حالة لوحات وترخيص السيارة",
+        formBtnSubmit: "إرسال البيانات لتقييم الأصل والتواصل ←"
+      }
+    };
+
+    function switchInvestorLang(lang) {
+      activeLang = lang;
+      localStorage.setItem('apex_lang', lang);
+      const root = document.getElementById('htmlRoot');
+
+      if (lang === 'ar') {
+        root.setAttribute('dir', 'rtl');
+        root.setAttribute('lang', 'ar');
+        document.getElementById('btnLangAr').className = 'px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition';
+        document.getElementById('btnLangEn').className = 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition';
+      } else {
+        root.setAttribute('dir', 'ltr');
+        root.setAttribute('lang', 'en');
+        document.getElementById('btnLangEn').className = 'px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition';
+        document.getElementById('btnLangAr').className = 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition';
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (invTrans[lang] && invTrans[lang][k]) {
+          el.innerText = invTrans[lang][k];
+        }
+      });
+
+      populateInvestorSelect();
+    }
+
+    function populateInvestorSelect() {
+      const sel = document.getElementById('invCarSelect');
+      if (!sel) return;
+      sel.innerHTML = '';
+      carsData.forEach((c, idx) => {
+        const val = c.investorPriceAED || (c.priceAED * 280);
+        sel.innerHTML += `<option value="${idx}">${c.name} (Valuation ~AED ${val.toLocaleString()})</option>`;
+      });
+      runInvestorCalc();
+    }
+
+    function runInvestorCalc() {
+      const sel = document.getElementById('invCarSelect');
+      if (!sel || !sel.value) return;
+      const idx = sel.value;
+      const days = parseInt(document.getElementById('invDays').value);
+      
+      const isAr = (activeLang === 'ar');
+      document.getElementById('occupancyDaysLabel').innerText = isAr 
+        ? `${days} يوم (${days > 24 ? "موسم الذروة" : "المعدل الطبيعي"})`
+        : `${days} Days (${days > 24 ? "High Season" : "Standard Season"})`;
+
+      const car = carsData[idx];
+      const val = car.investorPriceAED || (car.priceAED * 280);
+      const grossTurnover = car.priceAED * days;
+      const fee = grossTurnover * 0.30;
+      const maint = grossTurnover * 0.05;
+      const netMonthly = grossTurnover - fee - maint;
+      const netAnnual = netMonthly * 12;
+      const calculatedRoi = ((netAnnual / val) * 100).toFixed(1);
+
+      document.getElementById('projGross').innerText = "AED " + grossTurnover.toLocaleString();
+      document.getElementById('projFee').innerText = "- AED " + fee.toLocaleString();
+      document.getElementById('projMaint').innerText = "- AED " + maint.toLocaleString();
+      document.getElementById('projNetMonthly').innerText = "AED " + netMonthly.toLocaleString();
+      document.getElementById('projNetAnnual').innerText = "AED " + netAnnual.toLocaleString();
+      document.getElementById('projRoiLabel').innerText = isAr 
+        ? `عائد تقديري ~${calculatedRoi}% بناءً على التقييم السوقي`
+        : `Estimated ~${calculatedRoi}% Cap Rate based on valuation`;
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+
+    function handlePartnerSubmit(e) {
+      e.preventDefault();
+      const owner = document.getElementById('ownerName').value.trim();
+      const phone = document.getElementById('ownerPhone').value.trim();
+      const model = document.getElementById('carModel').value.trim();
+      const mileage = document.getElementById('carMileage').value.trim();
+      const plate = document.getElementById('carPlate') ? document.getElementById('carPlate').value : 'Dubai Private Plates';
+
+      const leadObj = {
+        id: "INV-" + Math.floor(1000 + Math.random() * 9000),
+        owner: owner || 'Asset Owner',
+        phone: phone || 'N/A',
+        model: model || 'Supercar',
+        mileage: mileage ? `${parseInt(mileage).toLocaleString()} KM` : 'N/A',
+        plate: plate,
+        date: new Date().toISOString().split('T')[0]
+      };
+
+      try {
+        let existing = JSON.parse(localStorage.getItem('apex_partner_leads') || '[]');
+        existing.unshift(leadObj);
+        localStorage.setItem('apex_partner_leads', JSON.stringify(existing));
+      } catch (err) {
+        console.error("Storage error:", err);
+      }
+
+      alert(activeLang === 'ar' 
+        ? `تم تسجيل طلبك بنجاح في بوابة إدارة الأصول!\nرقم الطلب: ${leadObj.id}\nالمالك: ${leadObj.owner}\nالسيارة: ${leadObj.model}\n\nسيتم تحويلك الآن لمكتب العمليات.` 
+        : `Application Logged into Asset Management Portal!\nRef: ${leadObj.id}\nOwner: ${leadObj.owner}\nVehicle: ${leadObj.model}\n\nRedirecting to Dispatcher Desk.`);
+      window.location.href = "admin.html";
+    }
+
+    // Initialize with Persisted Language
+    switchInvestorLang(activeLang);
+  </script>
+</body>
+</html>

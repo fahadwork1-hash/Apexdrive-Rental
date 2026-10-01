@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dispatcher Desk | ApexDrive UAE</title>
+  
+  <!-- FAVICON (Browser Tab Icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='system-ui, -apple-system, sans-serif' font-size='28' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EAD%3C/text%3E%3Ccircle cx='50' cy='20' r='5' fill='%2310b981'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0f172a">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
+
+  <div class="min-h-screen flex flex-col md:flex-row">
+    
+    <!-- SIDEBAR -->
+    <aside class="w-full md:w-64 bg-white border-r border-slate-200 p-6 flex flex-col justify-between">
+      <div>
+        <a href="index.html" class="flex items-center gap-3 mb-8">
+          <div class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center text-white font-black text-base">AD</div>
+          <div>
+            <span class="font-extrabold tracking-tight text-slate-900 block leading-none">ApexDesk</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest text-slate-400">Operations Control</span>
+          </div>
+        </a>
+
+        <nav class="space-y-1.5 text-xs font-bold">
+          <a href="#" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-slate-900 text-white shadow-sm">
+            <span>📊 Live Dispatch Board</span>
+          </a>
+          <a href="fleet.html" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition">
+            <span>🚗 View Catalog</span>
+          </a>
+          <a href="index.html" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 transition">
+            <span>🏠 Public Website</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[11px] text-slate-500">
+        <p class="font-bold text-slate-800">Dubai Hub T3</p>
+        <p class="text-emerald-600 font-semibold">● Dispatcher Online</p>
+      </div>
+    </aside>
+
+    <!-- MAIN OPERATIONS BOARD -->
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Fleet Dispatch & Bookings</h1>
+          <p class="text-xs text-slate-500 mt-1">Real-time incoming reservations captured directly from the front-end forms.</p>
+        </div>
+        <button onclick="resetData()" class="border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm">
+          Load Sample Bookings
+        </button>
+      </div>
+
+      <!-- METRICS -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Total Bookings</p>
+          <p id="mCount" class="text-3xl font-black text-slate-900">0</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Pending Confirmation</p>
+          <p id="mPending" class="text-3xl font-black text-amber-600">0</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Confirmed Dispatches</p>
+          <p id="mConfirmed" class="text-3xl font-black text-emerald-600">0</p>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="p-5 border-b border-slate-200 flex justify-between items-center">
+          <h2 class="text-sm font-bold text-slate-900">Incoming Customer Dispatches</h2>
+          <span class="text-[11px] text-slate-400">Syncs instantly with localStorage</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 border-b border-slate-200 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+              <tr>
+                <th class="px-5 py-3.5">ID</th>
+                <th class="px-5 py-3.5">Client</th>
+                <th class="px-5 py-3.5">Allocated Vehicle</th>
+                <th class="px-5 py-3.5">Handover Location</th>
+                <th class="px-5 py-3.5">Total Rate</th>
+                <th class="px-5 py-3.5">Status</th>
+                <th class="px-5 py-3.5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="deskTableBody" class="divide-y divide-slate-100">
+              <!-- Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TABLE 2: INVESTOR PLACEMENT LEADS -->
+      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm mt-8">
+        <div class="p-5 border-b border-slate-200 flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Supercar Placement Applications (Investor Portal)</h2>
+            <p class="text-[11px] text-slate-400">Incoming supercar owners seeking commercial fleet monetization</p>
+          </div>
+          <span id="leadCountBadge" class="text-[11px] font-bold bg-slate-100 text-slate-700 px-3 py-1 rounded-full">0 Leads</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 border-b border-slate-200 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+              <tr>
+                <th class="px-5 py-3.5">Lead Ref</th>
+                <th class="px-5 py-3.5">Owner Legal Name</th>
+                <th class="px-5 py-3.5">WhatsApp / Phone</th>
+                <th class="px-5 py-3.5">Vehicle Make & Model</th>
+                <th class="px-5 py-3.5">Current Mileage</th>
+                <th class="px-5 py-3.5">Plates Status</th>
+                <th class="px-5 py-3.5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTableBody" class="divide-y divide-slate-100">
+              <!-- Rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    const sampleBookings = [
+      { id: "APX-9021", customer: "Sheikh Tariq Al-Nuaimi", car: "Rolls-Royce Ghost Series II", location: "Dubai Airport Terminal 3", amount: "AED 11,400", status: "Confirmed" },
+      { id: "APX-4819", customer: "Marcus Vance", car: "Porsche 911 Carrera 4S", location: "Downtown Dubai", amount: "AED 4,950", status: "Pending" },
+      { id: "APX-3120", customer: "Alexander Croft", car: "Mercedes-AMG G63 BiTurbo", location: "Palm Jumeirah", amount: "AED 6,600", status: "Confirmed" }
+    ];
+
+    const sampleLeads = [
+      { id: "INV-9104", owner: "Hamdan Al-Maktoum", phone: "+971 50 847 2910", model: "2024 Lamborghini Revuelto", mileage: "3,400 KM", plate: "Dubai Private Plates" }
+    ];
+
+    function fetchBookings() {
+      const d = localStorage.getItem('apex_bookings');
+      if (!d) {
+        localStorage.setItem('apex_bookings', JSON.stringify(sampleBookings));
+        return sampleBookings;
+      }
+      return JSON.parse(d);
+    }
+
+    function fetchLeads() {
+      const d = localStorage.getItem('apex_partner_leads');
+      if (!d) {
+        localStorage.setItem('apex_partner_leads', JSON.stringify(sampleLeads));
+        return sampleLeads;
+      }
+      return JSON.parse(d);
+    }
+
+    function renderDesk() {
+      const list = fetchBookings();
+      const body = document.getElementById('deskTableBody');
+      body.innerHTML = '';
+
+      let pending = 0;
+      let confirmed = 0;
+
+      list.forEach((b, idx) => {
+        if (b.status === 'Pending') pending++;
+        if (b.status === 'Confirmed') confirmed++;
+
+        const badgeClass = b.status === 'Confirmed' 
+          ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
+          : 'bg-amber-50 text-amber-700 border-amber-200';
+
+        body.innerHTML += `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-4 font-mono font-bold text-slate-900">${b.id}</td>
+            <td class="px-5 py-4 font-bold text-slate-800">${b.customer}</td>
+            <td class="px-5 py-4">${b.car}</td>
+            <td class="px-5 py-4 text-slate-500">${b.location}</td>
+            <td class="px-5 py-4 font-extrabold text-slate-900">${b.amount}</td>
+            <td class="px-5 py-4">
+              <span class="px-2.5 py-0.5 rounded-full border text-[10px] font-bold ${badgeClass}">${b.status}</span>
+            </td>
+            <td class="px-5 py-4 text-right space-x-2">
+              <button onclick="toggleConfirm(${idx})" class="bg-slate-900 hover:bg-slate-800 text-white px-2.5 py-1 rounded-md text-[11px] font-bold transition">Confirm</button>
+              <button onclick="deleteItem(${idx})" class="text-rose-600 hover:text-rose-800 text-sm font-bold px-1">&times;</button>
+            </td>
+          </tr>
+        `;
+      });
+
+      document.getElementById('mCount').innerText = list.length;
+      document.getElementById('mPending').innerText = pending;
+      document.getElementById('mConfirmed').innerText = confirmed;
+    }
+
+    function renderLeads() {
+      const list = fetchLeads();
+      const body = document.getElementById('leadsTableBody');
+      if (!body) return;
+      body.innerHTML = '';
+
+      if (list.length === 0) {
+        body.innerHTML = `<tr><td colspan="7" class="px-5 py-6 text-center text-slate-400">No partner placement leads submitted yet.</td></tr>`;
+        document.getElementById('leadCountBadge').innerText = "0 Leads";
+        return;
+      }
+
+      list.forEach((l, idx) => {
+        const cleanPhone = l.phone.replace(/[^0-9]/g, '');
+        body.innerHTML += `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-5 py-4 font-mono font-bold text-slate-900">${l.id}</td>
+            <td class="px-5 py-4 font-bold text-slate-800">${l.owner}</td>
+            <td class="px-5 py-4">
+              <a href="https://wa.me/${cleanPhone}" target="_blank" class="text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1">
+                <span>💬 ${l.phone}</span>
+              </a>
+            </td>
+            <td class="px-5 py-4 font-semibold text-slate-900">${l.model}</td>
+            <td class="px-5 py-4 text-slate-500">${l.mileage || 'N/A'}</td>
+            <td class="px-5 py-4">
+              <span class="px-2.5 py-0.5 rounded-full border text-[10px] font-bold bg-slate-100 text-slate-700 border-slate-200">${l.plate || 'Dubai'}</span>
+            </td>
+            <td class="px-5 py-4 text-right">
+              <button onclick="deleteLead(${idx})" class="text-rose-600 hover:text-rose-800 text-sm font-bold px-2">&times;</button>
+            </td>
+          </tr>
+        `;
+      });
+      document.getElementById('leadCountBadge').innerText = `${list.length} ${list.length > 1 ? 'Leads' : 'Lead'}`;
+    }
+
+    function toggleConfirm(idx) {
+      const list = fetchBookings();
+      list[idx].status = list[idx].status === 'Confirmed' ? 'Pending' : 'Confirmed';
+      localStorage.setItem('apex_bookings', JSON.stringify(list));
+      renderDesk();
+    }
+
+    function deleteItem(idx) {
+      const list = fetchBookings();
+      list.splice(idx, 1);
+      localStorage.setItem('apex_bookings', JSON.stringify(list));
+      renderDesk();
+    }
+
+    function deleteLead(idx) {
+      const list = fetchLeads();
+      list.splice(idx, 1);
+      localStorage.setItem('apex_partner_leads', JSON.stringify(list));
+      renderLeads();
+    }
+
+    function resetData() {
+      localStorage.setItem('apex_bookings', JSON.stringify(sampleBookings));
+      localStorage.setItem('apex_partner_leads', JSON.stringify(sampleLeads));
+      renderDesk();
+      renderLeads();
+    }
+
+    // Auto-Sync across browser tabs instantly!
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'apex_bookings') renderDesk();
+      if (e.key === 'apex_partner_leads') renderLeads();
+    });
+
+    renderDesk();
+    renderLeads();
+  </script>
+</body>
+</html>
